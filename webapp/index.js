@@ -1,1 +1,8 @@
-alert('UI5 Ready!')
+sap.ui.define([
+    "sap/m/Text"
+], (Text) => {
+    "use strict";
+    new Text({
+        text: "Hello World"
+    }).placeAt("content");
+});
