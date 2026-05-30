@@ -8,7 +8,8 @@ sap.ui.define([
 
     const Component = UIComponent.extend("ui5.walkthrough.Component", {
         metadata: {
-            "interfaces": ["sap.ui.core.IAsyncContentCreation"]
+            "interfaces": ["sap.ui.core.IAsyncContentCreation"],
+            "manifest": "json"
         },
 
         init() {
@@ -21,23 +22,7 @@ sap.ui.define([
             }
 
             this.setModel(new JSONModel(data));
-
-            const i18nModel = new ResourceModel({
-                "bundleName": "ui5.walkthrough.i18n.i18n",
-                "supportedLocales": [""],
-                "fallbackLocale": ""
-            
-            });
-
-            this.setModel(i18nModel, "i18n");
         },
-
-        createContent(){
-            return XMLView.create({
-                "viewName": "ui5.walkthrough.view.App",
-                "id": "app"
-            })
-        }
     });
 
     return Component;
