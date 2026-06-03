@@ -32,6 +32,7 @@
                 "sap.m": {}
             }
         },
+        
         "rootView": {
             "viewName": "ui5.walkthrough.view.App",
             "type": "XML",
@@ -48,6 +49,14 @@
                     "fallbackLocale": ""
                 }
             }
+        },
+
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
         }
     }
 }
