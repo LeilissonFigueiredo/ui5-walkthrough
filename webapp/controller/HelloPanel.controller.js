@@ -1,8 +1,7 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
-    "sap/m/Dialog"
-],(Controller, MessageToast, Dialog) => {
+],(Controller, MessageToast) => {
     "use strict"
 
     const HelloPanel = Controller.extend("ui5.walkthrough.controller.HelloPanel", {
@@ -16,13 +15,16 @@ sap.ui.define([
         },
 
         async onOpenDialog(){
-            this.dialog ??= await this.loadFragment({
+            this._dialog ??= await this.loadFragment({
                 name: "ui5.walkthrough.view.HelloDialog"
             });
-            this.dialog.open();
+            this._dialog.open();
+        },
 
+        onCloseDialog(){
+            //this.byId("helloDialog")?.close(); //Official version on WalkThrough tutorial
+           this._dialog.close();
         }
-
     });
 
     return HelloPanel;
