@@ -13,6 +13,7 @@
                 text="{i18n>openDialogButtonText}"
                 id="helloDialogButton"
                 press=".onOpenDialog"
+                icon="sap-icon://globe"
             />
             <Button
                 class="myCustomButton" 
