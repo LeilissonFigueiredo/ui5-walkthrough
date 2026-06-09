@@ -1,7 +1,9 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
-], (Controller, JSONModel) => {
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator"
+], (Controller, JSONModel, Filter, FilterOperator) => {
 
    const InvoiceList = Controller.extend("ui5.walkthrough.controller.InvoiceList", {
        
@@ -11,7 +13,21 @@ sap.ui.define([
             });
 
             this.getView()?.setModel(oViewModel, "view");
+    },
+
+    onFilterInvoices(oEvent){
+        //build filter array
+        const aFilter = [];
+        const query = oEvent.getParameter("query");
+        if(query){
+            aFilter.push(new Filter("ProductName", FilterOperator.Contains, query));
         }
+
+        //filter binding
+
+        const oBinding = this.byId('invoiceList')?.getBinding("items");
+        oBinding?.filter(aFilter);
+    }
         
    });
    
