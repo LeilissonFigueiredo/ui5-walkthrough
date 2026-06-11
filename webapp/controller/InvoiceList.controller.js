@@ -2,8 +2,9 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], (Controller, JSONModel, Filter, FilterOperator) => {
+    "sap/ui/model/FilterOperator",
+    "sap/ui/core/UIComponent"
+], (Controller, JSONModel, Filter, FilterOperator, UIComponent) => {
 
    const InvoiceList = Controller.extend("ui5.walkthrough.controller.InvoiceList", {
        
@@ -27,6 +28,11 @@ sap.ui.define([
 
         const oBinding = this.byId('invoiceList')?.getBinding("items");
         oBinding?.filter(aFilter);
+    },
+
+    onPress(){
+        const router =  UIComponent.getRouterFor(this);
+        router.navTo('detail');
     }
         
    });
