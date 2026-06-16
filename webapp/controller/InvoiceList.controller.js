@@ -30,9 +30,14 @@ sap.ui.define([
         oBinding?.filter(aFilter);
     },
 
-    onPress(){
+    onPress(oEvent){
+        const item = oEvent.getSource();
+
         const router =  UIComponent.getRouterFor(this);
-        router.navTo('detail');
+        router.navTo('detail', {
+            invoicePath: window.encodeURIComponent(
+            item.getBindingContext("invoice").getPath().substring(1))
+        });
     }
         
    });
