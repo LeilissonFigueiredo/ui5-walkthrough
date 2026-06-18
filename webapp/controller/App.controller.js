@@ -6,10 +6,12 @@ sap.ui.define([
 ],(Controller,MessageToast,JSONModel,ResourceModel) => {
     "use strict";
 
-    const AppController = Controller.extend("ui5.walkthrough.controller.App", {
-
+    const App = Controller.extend("ui5.walkthrough.controller.App", {
+        onInit(){
+            this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
+        }
         
     });
 
-    return AppController;
+    return App;
 });
