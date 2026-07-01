@@ -8,9 +8,11 @@ My implementation of the official SAPUI5 Walkthrough tutorial from the SAPUI5 De
 - Data Binding
 - Models
 - Routing
-- i18n
+- Resource Models(i18n)
 - Testing
 - Reusable Components
+
+  and more. Check the official tutorial to see all topics covered. 
 
 ## Technologies
 
